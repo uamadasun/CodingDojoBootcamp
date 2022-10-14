@@ -1,0 +1,19 @@
+* {
+    margin: 0px;
+    padding: 0px;
+}
+
+.container {
+    height: 300px;
+    border: 5px solid black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#circle {
+    height: 200px;
+    width: 200px;
+    border-radius: 50%;
+    background-color: red;
+}

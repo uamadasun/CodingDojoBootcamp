@@ -1,0 +1,40 @@
+.backgroundBlue{
+    background-color: rgb(100,149,237);
+    height: 40px;
+    /* width: auto; */
+    padding: 10px;
+    padding-right: 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+}
+
+h1 {
+    color: whitesmoke;
+    /* margin:auto; */
+    font-size: smaller;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-weight: lighter;
+}
+
+
+ul {
+    list-style-type: none;
+    display: flex;
+    justify-content: space-between;
+    width: 50%;
+}
+
+li a{
+    text-decoration: none;
+    color: white;
+    font-size: small;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+img {
+    height: 40px;
+    width: 40px;
+    /* margin: auto; */
+}

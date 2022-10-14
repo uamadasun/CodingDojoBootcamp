@@ -1,0 +1,31 @@
+
+
+body {
+    background-color: whitesmoke;
+    display: flex;
+    vertical-align: center;
+    width: 400px;
+    height: 500px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+#background {
+    background-color: white;
+    display: flex;
+    height: 250px;
+    padding: 50px;
+}
+#forms {
+    background-color: goldenrod;
+    color: whitesmoke;
+    width: 300px;
+    height: 100px;
+    /* margin-top: 50px; */
+    padding: 50px;
+}
+
+img {
+    height: 200px;
+    width: 120px;
+
+}
