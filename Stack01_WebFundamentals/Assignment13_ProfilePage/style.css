@@ -1,0 +1,368 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: "Balsamiq Sans";
+}
+
+.container {
+    height: 1000px;
+    width: auto;
+    display: flex;
+    flex-direction: column;
+}
+
+nav {
+    flex: 0.75;
+    /* background-color: rgb(248,169,100); */
+    background-color: black;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+    /* border: 5px solid aqua; */
+}
+
+nav h1 {
+    flex: 3;
+    font-size: 40pt;
+    text-align: right;
+    /* border: 5px solid red; */
+    padding-left: 150px;
+    color: white;
+}
+
+ul {
+    flex: 4.5;
+    display: flex;
+    list-style-type: none;
+    gap: 40px;
+    font-size: 20pt;
+    /* border: 5px solid green; */
+}
+
+ul a {
+    text-decoration: none;
+    color: lightgrey;
+}
+
+.active {
+    color: white;
+}
+
+
+nav button {
+    flex: 0.8;
+    font-family: "Balsamiq Sans";
+    background-color: rgb(101,163,172);
+    color: white;
+    border-color: black;
+    box-shadow: 3px 3px black;
+    margin-right: 20%;
+    font-size: 25px;
+}
+
+/* ----------------------------------------------- */
+
+.background {
+    flex: 8;
+    /* background-color: white; */
+    /* background-image: url("background-image.jpg"); */
+    /* background-size: cover; */
+    display: flex;
+    /* align-items: center; */
+    /* justify-content: space-around; */
+}
+
+.leftside {
+    flex: 3;
+    /* border: 5px solid red; */
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    /* padding: 10px; */
+    /* gap: 30px; */
+}
+
+.userCard {
+    flex: 5;
+    padding-top: 20px;
+    padding-right: 20px;
+    padding-left: 400px;
+    display: flex;
+    flex-direction: column;
+    /* border: 5px solid pink; */
+}
+
+.educationCard {
+    flex: 2;
+    padding-top: -90px;
+    padding-right: 20px;
+    padding-bottom: 250px;
+    padding-left: 400px;
+    padding-top: 10px;
+    display: flex;
+    flex-direction: column;
+    /* border: 5px solid blue; */
+}
+
+.topbox {
+    flex: 1;
+    background-color: rgb(101,163,172);
+}
+
+.profilebox {
+    flex: 2;
+    border-left: 3px solid gray;
+    border-right: 3px solid gray;
+    border-bottom: 3px solid gray;
+    display: flex;
+    flex-direction: column;
+    padding-left: 30px;
+    justify-content: space-around;
+    gap: 10px;
+    /* border: 5px solid red; */
+}
+
+.profilebox h1 {
+    flex: 2;
+    padding-top: 70px;
+}
+
+.profilebox .location {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex: 1;
+}
+
+.profilebox .about {
+    flex: 1;
+}
+
+.profilebox .editprofile {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex: 2;
+    padding-bottom: 20px;
+}
+
+.profilepic {
+    position: absolute;
+    top: 190px;
+    left: 450px;
+    border: 3px solid gray;
+    border-radius: 50%;
+    padding: 4px 3px 0px;
+    background-color: white;
+}
+
+
+#headEducation {
+    flex: 2;
+    background-color: black;
+    color: white;
+}
+
+#headEducation h3 {
+    font-size: 20pt;
+    padding-top: 18px;
+    padding-left: 20px;
+}
+
+#bodyEducation {
+    flex: 4;
+    border-left: 3px solid gray;
+    border-right: 3px solid gray;
+    border-bottom: 3px solid gray;
+
+    padding-top: 10px;
+    padding-left: 20px;
+}
+
+#bodyEducation h4 {
+    font-size: 12pt;
+    margin-top: 10px;
+}
+
+#bodyEducation p  {
+    font-size: 15pt;
+    margin-top: 10px;
+}
+
+#bodyEducation h2 {
+    font-size: 20pt;
+}
+
+.rightside {
+    flex: 2;
+    /* border: 5px solid green; */
+    /* margin: 20px; */
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    padding-top: 20px;
+    padding-left: 20px;
+    padding-bottom: 300px;
+    padding-right: 200px;
+    gap: 40px;
+}
+
+#requests {
+    flex: 2;
+    padding-right: 300px;
+    /* margin-top: 50px; */
+    display: flex;
+    flex-direction: column;
+}
+
+#requestsheader {
+    flex: 1;
+    /* border: 5px solid red; */
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    background-color: black;
+    color: white;
+}
+
+.button2 {
+    border: none;
+    text-align: center;
+    padding: 10px;
+    border-radius: 50%;
+    font-size: 15px;
+    background-color: rgb(231,231,231);
+}
+
+#requestsbody {
+    flex: 2;
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 40px;
+    padding-top:25px;
+    padding-left: 15px;
+    padding-right: 15px;
+    gap: 20px;
+    border-bottom: 3px solid gray;
+    border-left: 3px solid gray;
+    border-right: 3px solid gray;
+
+}
+
+.person1 img, .person2 img {
+    padding-left: 5px;
+}
+
+.person1 {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.person1 h3 {
+    flex: 3;
+    /* border: 5px solid red; */
+    padding-left: 15px;
+    font-size: 20pt;
+}
+
+.person2 {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.person2 h3 {
+    flex: 3;
+    /* border: 5px solid red; */
+    padding-left: 15px;
+    font-size: 20pt;
+}
+
+.checkandx {
+    display: flex;
+    flex: 2;
+    justify-content: space-around;
+}
+
+.buttoncheck {
+    background-image: url('kisspng-check-mark-computer-icons-encapsulated-postscript-checkmark-circle-5b4a4d2e9c8b63.2716299715315960786412.png');
+    background-size: cover;
+    /* border: 5px solid orange; */
+    height: 25px;
+    width: 25px;
+    /* flex: 1 */
+}
+
+.buttonx {
+    background-image: url('pngfind.com-infor-logo-png-4191172.png');
+    background-size: cover;
+    /* border: 5px solid orange; */
+    height: 25px;
+    width: 25px;
+    /* flex: 1 */
+}
+
+#connections {
+    flex: 3;
+    /* border: 5px solid palevioletred; */
+    padding-right: 300px;
+    display: flex;
+    flex-direction: column;
+}
+
+.connectionsheader {
+    flex: 1;
+    /* border: 5px solid red; */
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    background-color: black;
+    color: white;
+}
+
+.connectionsbody {
+    flex: 3;
+    /* border: 3px solid purple; */
+    /* padding-bottom: -10px; */
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    border: 3px solid gray;
+    padding-top: 10px;
+    justify-content: space-around;
+    padding-bottom: 10px;
+}
+
+/* .people {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    border: 3px solid gray;
+    padding-top: 10px;
+    padding-bottom: 10px;
+
+} */
+
+.person {
+    display: flex;
+    padding-left: 10px;
+    gap: 20px;
+    align-items: center;
+}
+
+.viewmore {
+    flex: 0.5;
+    font-size: 15pt;
+    /* padding-top: 10px; */
+    padding-left: 10px;
+    padding-top: 15px;
+    padding-bottom: 0%;
+
+    border-left: 3px solid gray;
+    border-right: 3px solid gray;
+    border-bottom: 3px solid gray;
+
+}
+
