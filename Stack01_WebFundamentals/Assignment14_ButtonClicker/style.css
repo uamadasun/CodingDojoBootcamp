@@ -1,0 +1,94 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: "Balsamiq Sans";
+}
+
+nav {
+    display: flex;
+    justify-content: space-around;
+    width: 700px;
+    background: lightgray;
+    margin: 0 auto;
+    padding: 20px;
+    gap: 20px;
+}
+
+nav h1 {
+    font-size: 20pt;
+    flex: 1;
+    text-align: center;
+    padding: 2px;
+}
+
+nav input {
+    border: 3px solid black;
+    flex: 2;
+    margin-left: 2px;
+    padding-left: 10px;
+}
+
+nav button {
+    flex: 0.5;
+    font-size: 15px;
+    font-family: "Balsamiq Sans";
+    color: white;
+    background-color: rgb(44,120,228);
+    box-shadow: 2px 3px black;
+    border: 3px solid black;
+}
+
+.container {
+    display: flex;
+    justify-content: space-between;
+    padding: 30px;
+}
+
+.leftside {
+    flex: 2;
+    border: 5px solid red;
+    
+}
+
+.rightside {
+    flex: 1;
+    border: 5px solid blue;
+}
+
+.topbox {
+    display: flex;
+    border: 3px solid black;
+    margin-left: 180px;
+    padding: 5px;
+}
+
+.leftTop {
+    flex: 1;
+}
+
+.leftTop h1 {
+    margin-left: 20px;
+    padding-bottom: 5px;
+}
+
+.leftTop h2 {
+    margin-left: 30px;
+    font-size: 13pt;
+    font-style: italic;
+    padding-bottom: 5px;
+}
+
+.leftTop h3 {
+    margin-left: 15px;
+    font-size: 12pt;
+
+
+}
+
+.rightTop {
+    flex: 2;
+}
+
+.rightTop h2 {
+    padding-top: 25px;
+}
