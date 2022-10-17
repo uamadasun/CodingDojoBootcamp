@@ -1,3 +1,5 @@
+//resource: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/random
+
 //1. The Math Library
 // var floor = Math.floor(1.8);
 // var ceiling = Math.ceil( Math.PI );

@@ -11,8 +11,8 @@
 <body>
     <nav>
         <h1>Dojonary</h1>
-        <input type="search" name="Search" id="" placeholder="Search">
-        <button>Login</button>
+        <input type="search" name="Search" id="search" placeholder="Search">
+        <button onclick="clicker(this)">Login</button>
     </nav>
 
     <div class="container">
@@ -22,8 +22,12 @@
                 <div class="leftTop">
                     <h1>ninja</h1>
                     <h2>noun</h2>
-                    <h3>Plural: ninjas</h3>
-                    <button>13 likes</button>
+                    <div class="plural">
+                        <h3>Plural: </h3>
+                        <h3 class="ninjas">ninjas</h3>
+                    </div>
+                    
+                    <button onclick="alert('Ninja was liked')">13 likes</button>
                 </div>
 
                 <div class="rightTop">
@@ -34,21 +38,29 @@
             </div>
 
             <div class="bottombox">
+                <div class="leftBottom">
+                    <h1>ninja</h1>
+                    <h2>noun</h2>
+                    <div class="plural">
+                        <h3>Plural: </h3>
+                        <h3 class="ninjas">ninjas</h3>
+                    </div>
+                    
+                    <button onclick="alert('Ninja was liked')">37 likes</button>
+                </div>
 
-
+                <div class="rightBottom">
+                    <h2>A <a href="$">programmer</a> who breaks down problems with <a href="#">zen</a>-like focus</h2>
+                </div>
             </div>
-
-
         </div>
-
-
-
-<!-- ------------------------------------------------------- -->
-
         <div class="rightside">
-
+            <div class="rightsinglebox">
+                <h2>Dojonary is defined by YOU</h2>
+                <button onclick="removeElement(this)">Add Definition</button>
+            </div>
         </div>
-
     </div>
+    <script src="script.js"></script>
 </body>
 </html>
