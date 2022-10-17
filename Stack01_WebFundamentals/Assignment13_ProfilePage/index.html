@@ -4,15 +4,12 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Profile</title>
+    <title>Portfolio Page</title>
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Balsamiq+Sans&display=swap" rel="stylesheet">
-    <!-- <link href="https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap" rel="stylesheet"> -->
-
-
 </head>
 <body>
-    <div class="container">
+    <div>
         <nav>
             <h1>Profile</h1>
             <ul>
@@ -22,127 +19,115 @@
             </ul>
             <button>Sign Out</button>
         </nav>
+    </div>
+    <div class="container">
+        <div class="leftside">
+            <div class="userCard">
 
-
-        <div class="background">
-
-            <div class="leftside">
-                <div class="userCard">
-
-                    <div class="topbox"> 
-                    </div>
-
-                    <div class="profilepic">
-                        <img src="user-circle.png" alt="profile pic" height=100>
-                    </div>
-
-                    <div class="profilebox">
-                        <h1>Jane Doe</h1>
-        
-                        <div class="location">
-                            <img src="map-marker.png" alt="Map" height=20>
-                            <h3>Seattle</h3>
-                        </div>
-        
-                        <div class="about">
-                            <p>Developer | Engineer | Problem Solver</p>
-                            <p>Master of shadows and the Internet</p>
-                        </div>
-
-                        <div class="editprofile">
-                            <img src="gear.png" alt="Settings gear" height=20>
-                            <a href="#">edit profile</a>
-                        </div>
-                    </div>
+                <div class="topbox"> 
                 </div>
 
-                <div class="educationCard">
-                    <div id="headEducation">
-                        <h3>Education</h3>
+                <div class="profilepic">
+                    <img src="user-circle.png" alt="profile pic" height=85>
+                </div>
+
+                <div class="profilebox">
+                    <h1>Jane Doe</h1>
+    
+                    <div class="location">
+                        <img src="map-marker.png" alt="Map" height=20>
+                        <h3>Seattle</h3>
+                    </div>
+    
+                    <div class="about">
+                        <p>Developer | Engineer | Problem Solver</p>
+                        <p>Master of shadows and the Internet</p>
                     </div>
 
-                    <div id="bodyEducation">
-                        <h2>Coding Dojo - Full Stack Bootcamp</h2>
-                        <h4>Oct 2022 - Feb 2023</h4>
-                        <p>Triple black belt in Python, MERN, and C#...</p>
-
-                    </div> 
+                    <div class="editprofile">
+                        <img src="gear.png" alt="Settings gear" height=20>
+                        <a href="#">edit profile</a>
+                    </div>
                 </div>
             </div>
-                
-        
-            <div class="rightside">
 
-                <div id="requests">
-                    <div id="requestsheader">
-                        <button class="button2">2</button>
-                        <h3>Connection Requests</h3>
+            <div class="educationCard">
+                <div id="headEducation">
+                    <h3>Education</h3>
+                </div>
+
+                <div id="bodyEducation">
+                    <h2>Coding Dojo - Full Stack Bootcamp</h2>
+                    <h4>Oct 2022 - Feb 2023</h4>
+                    <p>Triple black belt in Python, MERN, and C#...</p>
+
+                </div> 
+            </div>
+        </div>
+
+        <div class="rightside">
+
+            <div class="requests">
+                <div id="requestsheader">
+                    <button class="button2">2</button>
+                    <h3>Connection Requests</h3>
+                </div>
+
+                <div id="requestsbody">
+                    <div class="person1">
+                        <img src="user-circle.png" alt="user pic" height=40>
+                        <h3>Todd E</h3>
+                        <div class="checkandx">
+                            <div class="buttoncheck"></div>
+                            <div class="buttonx"></div>
+                        </div>
                     </div>
 
-
-                    <div id="requestsbody">
-                        <div class="person1">
-                            <img src="user-circle.png" alt="user pic" height=40>
-                            <h3>Todd E</h3>
-                            <div class="checkandx">
-                                <div class="buttoncheck"></div>
-                                <div class="buttonx"></div>
-                            </div>
-                        </div>
-
-                        <div class="person2">
-                            <img src="user-circle.png" alt="user pic" height=40>
-                            <h3>Phil K</h3>
-                            <div class="checkandx">
-                                <div class="buttoncheck"></div>
-                                <div class="buttonx"></div>
-                            </div>
+                    <div class="person2">
+                        <img src="user-circle.png" alt="user pic" height=40>
+                        <h3>Phil K</h3>
+                        <div class="checkandx">
+                            <div class="buttoncheck"></div>
+                            <div class="buttonx"></div>
                         </div>
                     </div>
                 </div>
+            </div>
 
-                <div id="connections">
-                    <div class="connectionsheader">
-                        <button class="button2">500+</button>
-                        <h3>Your Connections</h3>
-                    </div>
-
-                    <div class="connectionsbody">
-                        <!-- <div class="people"> -->
-                            <div class="person">
-                                <img src="user-circle.png" alt="user pic" height=40>
-                                <h3>Adrien D</h3>
-                            </div>
-                            <div class="person">
-                                <img src="user-circle.png" alt="user pic" height=40>
-                                <h3>Anne J</h3>
-                            </div>
-                            <div class="person">
-                                <img src="user-circle.png" alt="user pic" height=40>
-                                <h3>Alayne T</h3>
-                            </div>
-                            <div class="person">
-                                <img src="user-circle.png" alt="user pic" height=40>
-                                <h3>Arry Y</h3>
-                            </div>
-
-                        <!-- </div> -->
-                    </div>
-
-                    <div class="viewmore">
-                        <a href="#">View More</a>
-                    </div>
-
-
+            <div class="connections">
+                <div class="connectionsheader">
+                    <button class="button2">500+</button>
+                    <h3>Your Connections</h3>
                 </div>
+
+                <div class="connectionsbody">
+                        <div class="person">
+                            <img src="user-circle.png" alt="user pic" height=40>
+                            <h3>Adrien D</h3>
+                        </div>
+                        <div class="person">
+                            <img src="user-circle.png" alt="user pic" height=40>
+                            <h3>Anne J</h3>
+                        </div>
+                        <div class="person">
+                            <img src="user-circle.png" alt="user pic" height=40>
+                            <h3>Alayne T</h3>
+                        </div>
+                        <div class="person">
+                            <img src="user-circle.png" alt="user pic" height=40>
+                            <h3>Arry Y</h3>
+                        </div>
+                </div>
+
+                <div class="viewmore">
+                    <a href="#">View More</a>
+                </div>
+
 
             </div>
 
-
-
-
+        </div>
 
     </div>
-    
 </body>
 </html>

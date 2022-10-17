@@ -4,40 +4,43 @@
     font-family: "Balsamiq Sans";
 }
 
+body {
+    background-image: url("background-image.jpg");
+    background-size: cover;
+}
+
 .container {
-    height: 1000px;
-    width: auto;
+    height: 800px;
+    width: 1000px;
     display: flex;
-    flex-direction: column;
+    align-content: center;
+    justify-content: space-around;
+    margin-left: 250px;
 }
 
 nav {
-    flex: 0.75;
-    /* background-color: rgb(248,169,100); */
-    background-color: black;
+    height: 10%;
+    background-color: rgb(247,167,91);
+    opacity: 0.9;
     display: flex;
-    justify-content: space-between;
+    justify-content: space-evenly;
     align-items: center;
     gap: 20px;
-    /* border: 5px solid aqua; */
 }
 
 nav h1 {
-    flex: 3;
-    font-size: 40pt;
+    flex: 2;
+    font-size: 30pt;
     text-align: right;
-    /* border: 5px solid red; */
-    padding-left: 150px;
     color: white;
 }
 
 ul {
-    flex: 4.5;
+    flex: 5;
     display: flex;
     list-style-type: none;
     gap: 40px;
-    font-size: 20pt;
-    /* border: 5px solid green; */
+    font-size: 15pt;
 }
 
 ul a {
@@ -51,105 +54,107 @@ ul a {
 
 
 nav button {
-    flex: 0.8;
+    flex: 1;
     font-family: "Balsamiq Sans";
-    background-color: rgb(101,163,172);
+    background-color: rgb(201,107,79);
     color: white;
     border-color: black;
     box-shadow: 3px 3px black;
-    margin-right: 20%;
+    margin-right: 30%;
     font-size: 25px;
 }
 
-/* ----------------------------------------------- */
 
-.background {
-    flex: 8;
-    /* background-color: white; */
-    /* background-image: url("background-image.jpg"); */
-    /* background-size: cover; */
-    display: flex;
-    /* align-items: center; */
-    /* justify-content: space-around; */
+
+
+
 }
 
 .leftside {
-    flex: 3;
-    /* border: 5px solid red; */
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
-    /* padding: 10px; */
-    /* gap: 30px; */
+    flex: 2;
 }
 
 .userCard {
-    flex: 5;
-    padding-top: 20px;
-    padding-right: 20px;
-    padding-left: 400px;
-    display: flex;
-    flex-direction: column;
-    /* border: 5px solid pink; */
-}
+    height: 40%;
+    margin-left: 170px;
+    margin-right: 30px;
+    margin-bottom: 40px;
+    margin-top: 20px;
 
-.educationCard {
-    flex: 2;
-    padding-top: -90px;
-    padding-right: 20px;
-    padding-bottom: 250px;
-    padding-left: 400px;
-    padding-top: 10px;
-    display: flex;
-    flex-direction: column;
-    /* border: 5px solid blue; */
+
 }
 
 .topbox {
-    flex: 1;
-    background-color: rgb(101,163,172);
+    height: 25%;
+    background-color: rgb(201,107,79);
 }
 
 .profilebox {
-    flex: 2;
-    border-left: 3px solid gray;
-    border-right: 3px solid gray;
-    border-bottom: 3px solid gray;
-    display: flex;
-    flex-direction: column;
-    padding-left: 30px;
-    justify-content: space-around;
-    gap: 10px;
-    /* border: 5px solid red; */
+    padding: 30px;    
+    border-bottom: 3px solid rgb(201,107,79);
+    border-right: 3px solid rgb(201,107,79);
+    border-left: 3px solid rgb(201,107,79);
 }
 
 .profilebox h1 {
-    flex: 2;
-    padding-top: 70px;
+    padding-top: 20px;
+    padding-bottom: 10px;
 }
 
-.profilebox .location {
+.location {
     display: flex;
     align-items: center;
     gap: 10px;
-    flex: 1;
+    padding-bottom: 10px;
 }
 
-.profilebox .about {
-    flex: 1;
-}
-
-.profilebox .editprofile {
+.editprofile {
     display: flex;
     align-items: center;
     gap: 10px;
-    flex: 2;
-    padding-bottom: 20px;
+    padding-top: 10px;
+}
+
+.educationCard {
+    height: 20%;
+    margin-left: 170px;
+    margin-right: 30px;
+    margin-bottom: 90px;
+    margin-top: 15px;
+}
+
+#headEducation {
+    background-color: rgb(201,107,79);
+    color: white;
+    height: 25%;
+}
+
+#headEducation h3 {
+    padding-top: 10px;
+    padding-left: 10px;
+}
+
+#bodyEducation {
+    height: 70%;
+    border-bottom: 3px solid rgb(201,107,79);
+    border-right: 3px solid rgb(201,107,79);
+    border-left: 3px solid rgb(201,107,79);
+    padding-top: 10px;
+    padding-left: 20px;
+}
+
+#bodyEducation h2 {
+    padding-bottom: 5px;
+}
+
+#bodyEducation h4 {
+    padding-bottom: 5px;
+    color: gray;
 }
 
 .profilepic {
     position: absolute;
-    top: 190px;
+    top: 100px;
     left: 450px;
     border: 3px solid gray;
     border-radius: 50%;
@@ -157,72 +162,33 @@ nav button {
     background-color: white;
 }
 
-
-#headEducation {
-    flex: 2;
-    background-color: black;
-    color: white;
-}
-
-#headEducation h3 {
-    font-size: 20pt;
-    padding-top: 18px;
-    padding-left: 20px;
-}
-
-#bodyEducation {
-    flex: 4;
-    border-left: 3px solid gray;
-    border-right: 3px solid gray;
-    border-bottom: 3px solid gray;
-
-    padding-top: 10px;
-    padding-left: 20px;
-}
-
-#bodyEducation h4 {
-    font-size: 12pt;
-    margin-top: 10px;
-}
-
-#bodyEducation p  {
-    font-size: 15pt;
-    margin-top: 10px;
-}
-
-#bodyEducation h2 {
-    font-size: 20pt;
-}
-
 .rightside {
-    flex: 2;
-    /* border: 5px solid green; */
-    /* margin: 20px; */
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    padding-top: 20px;
-    padding-left: 20px;
-    padding-bottom: 300px;
-    padding-right: 200px;
-    gap: 40px;
+    flex: 1;
 }
 
-#requests {
-    flex: 2;
-    padding-right: 300px;
-    /* margin-top: 50px; */
-    display: flex;
-    flex-direction: column;
+.requests {
+    height: 25%;
+    margin-left: 20px;
+    margin-right: 40px;
+    margin-bottom: 60px;
+    margin-top: 20px;
+}
+
+
+.connections {
+    height: 35%;
+    margin-left: 20px;
+    margin-right: 40px;
+    margin-bottom: 40px;
+    margin-top: 15px;
 }
 
 #requestsheader {
-    flex: 1;
-    /* border: 5px solid red; */
+    height: 30%;
     display: flex;
     justify-content: space-evenly;
     align-items: center;
-    background-color: black;
+    background-color: rgb(201,107,79);
     color: white;
 }
 
@@ -232,137 +198,89 @@ nav button {
     padding: 10px;
     border-radius: 50%;
     font-size: 15px;
+    font-weight: bolder;
     background-color: rgb(231,231,231);
 }
 
 #requestsbody {
-    flex: 2;
-    display: flex;
-    flex-direction: column;
-    padding-bottom: 40px;
-    padding-top:25px;
-    padding-left: 15px;
-    padding-right: 15px;
-    gap: 20px;
-    border-bottom: 3px solid gray;
-    border-left: 3px solid gray;
-    border-right: 3px solid gray;
+    height: 60%;
+    padding: 10px;
+    border-bottom: 3px solid rgb(201,107,79);
+    border-right: 3px solid rgb(201,107,79);
+    border-left: 3px solid rgb(201,107,79);
 
-}
-
-.person1 img, .person2 img {
-    padding-left: 5px;
 }
 
 .person1 {
     display: flex;
-    justify-content: space-between;
     align-items: center;
+    height: 40%;
+    gap: 20px;
+    padding-bottom: 10px;
 }
 
-.person1 h3 {
-    flex: 3;
-    /* border: 5px solid red; */
-    padding-left: 15px;
-    font-size: 20pt;
+.person1 h3, .person2 h3 {
+    font-size: 15pt;
+    flex: 2;
 }
 
 .person2 {
     display: flex;
-    justify-content: space-between;
     align-items: center;
-}
-
-.person2 h3 {
-    flex: 3;
-    /* border: 5px solid red; */
-    padding-left: 15px;
-    font-size: 20pt;
+    height: 40%;
+    gap: 20px;
+    
 }
 
 .checkandx {
     display: flex;
-    flex: 2;
-    justify-content: space-around;
+    justify-content: space-between;
+    gap: 10px;
+    flex: 1;
 }
 
 .buttoncheck {
     background-image: url('kisspng-check-mark-computer-icons-encapsulated-postscript-checkmark-circle-5b4a4d2e9c8b63.2716299715315960786412.png');
     background-size: cover;
-    /* border: 5px solid orange; */
     height: 25px;
     width: 25px;
-    /* flex: 1 */
 }
 
 .buttonx {
     background-image: url('pngfind.com-infor-logo-png-4191172.png');
     background-size: cover;
-    /* border: 5px solid orange; */
     height: 25px;
     width: 25px;
-    /* flex: 1 */
-}
-
-#connections {
-    flex: 3;
-    /* border: 5px solid palevioletred; */
-    padding-right: 300px;
-    display: flex;
-    flex-direction: column;
 }
 
 .connectionsheader {
-    flex: 1;
-    /* border: 5px solid red; */
+    height: 20%;
     display: flex;
     justify-content: space-evenly;
     align-items: center;
-    background-color: black;
+    background-color: rgb(201,107,79);
     color: white;
 }
 
 .connectionsbody {
-    flex: 3;
-    /* border: 3px solid purple; */
-    /* padding-bottom: -10px; */
-    display: flex;
-    flex-direction: column;
-    gap: 5px;
-    border: 3px solid gray;
-    padding-top: 10px;
-    justify-content: space-around;
-    padding-bottom: 10px;
+    height: 70%;
+    border-right: 3px solid rgb(201,107,79);
+    border-left: 3px solid rgb(201,107,79);
+
 }
-
-/* .people {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    border: 3px solid gray;
-    padding-top: 10px;
-    padding-bottom: 10px;
-
-} */
 
 .person {
     display: flex;
+    height: 25%;
     padding-left: 10px;
     gap: 20px;
     align-items: center;
 }
 
+
 .viewmore {
-    flex: 0.5;
-    font-size: 15pt;
-    /* padding-top: 10px; */
+    height: 10%;
+    border: 3px solid rgb(201,107,79);
+    padding-top: 10px;
     padding-left: 10px;
-    padding-top: 15px;
-    padding-bottom: 0%;
-
-    border-left: 3px solid gray;
-    border-right: 3px solid gray;
-    border-bottom: 3px solid gray;
-
 }
-
