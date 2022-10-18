@@ -32,7 +32,7 @@
                 </div>
 
                 <div class="profilebox">
-                    <h1>Jane Doe</h1>
+                    <h1 id="fullName">Jane Doe</h1>
     
                     <div class="location">
                         <img src="map-marker.png" alt="Map" height=20>
@@ -46,7 +46,7 @@
 
                     <div class="editprofile">
                         <img src="gear.png" alt="Settings gear" height=20>
-                        <a href="#">edit profile</a>
+                        <a href="#" onclick="changeName(this)">edit profile</a>
                     </div>
                 </div>
             </div>
@@ -78,8 +78,8 @@
                         <img src="user-circle.png" alt="user pic" height=40>
                         <h3>Todd E</h3>
                         <div class="checkandx">
-                            <div class="buttoncheck"></div>
-                            <div class="buttonx"></div>
+                            <button class="buttoncheck" onclick="removeAndAdd1(this)"></button>
+                            <button class="buttonx" onclick="remove1(this)"></button>
                         </div>
                     </div>
 
@@ -87,8 +87,8 @@
                         <img src="user-circle.png" alt="user pic" height=40>
                         <h3>Phil K</h3>
                         <div class="checkandx">
-                            <div class="buttoncheck"></div>
-                            <div class="buttonx"></div>
+                            <button class="buttoncheck" onclick="removeAndAdd2(this)"></button>
+                            <button class="buttonx" onclick="remove2(this)"></button>
                         </div>
                     </div>
                 </div>
@@ -96,7 +96,7 @@
 
             <div class="connections">
                 <div class="connectionsheader">
-                    <button class="button2">500+</button>
+                    <button class="button2" id="friendCount">418</button>
                     <h3>Your Connections</h3>
                 </div>
 
@@ -129,5 +129,6 @@
         </div>
 
     </div>
+    <script src="script.js"></script>
 </body>
 </html>
