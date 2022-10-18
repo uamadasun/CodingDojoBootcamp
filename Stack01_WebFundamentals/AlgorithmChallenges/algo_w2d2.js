@@ -68,11 +68,11 @@ for (var i=0; i<pokemon.length; i++) {
     }
 }
 
-for (var i=0; i<pokemon.length; i++) {
-    if (pokemon[i].types.length == 1 && pokemon[i].types=="poison") {
-        console.log(pokemon[i].name.split("").reverse().join(""));
-    }
-}
+// for (var i=0; i<pokemon.length; i++) {
+//     if (pokemon[i].types.length == 1 && pokemon[i].types=="poison") {
+//         console.log(pokemon[i].name.split("").reverse().join(""));
+//     }
+// }
 
 
 
