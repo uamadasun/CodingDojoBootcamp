@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Playground</title>
+    <link href="https://fonts.googleapis.com/css2?family=Balsamiq+Sans&display=swap" rel="stylesheet">
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            font-family: "Balsamiq Sans";
+        }
+        body {
+            margin: 0 auto;
+        }
+        h1 {
+            text-align: center;
+            margin: 100px 0 50px 0;
+        }
+        .container {
+            display: flex;
+            justify-content: space-between;
+            height: auto;
+            width: auto;
+            flex-wrap: wrap;
+    
+        }
+        .box {
+            background-color: {{color}};
+            border: 3px solid black;
+            padding: 50px;
+            flex: 1;
+            margin: 10px;
+        }
+    
+    </style>
+    
+</head>
+
+<body>
+    <h1>Welcome!</h1>
+    <div class="container">
+        {% for i in range(nums) %}
+        <div class="box"></div>
+        {% endfor %}
+    </div>
+    
+
+    
+</body>
+</html>
