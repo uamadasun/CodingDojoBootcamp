@@ -19,7 +19,6 @@ class User:
         self.account.display_account_info()
         return self
 
-    
 
 first_user = User("Marissa", "marissa@gmail.com")
 first_user.make_deposit(5000).make_withdrawal(500).display_user_balance()
