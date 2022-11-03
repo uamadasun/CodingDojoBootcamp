@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css2?family=Balsamiq+Sans&display=swap" rel="stylesheet">
+
+</head>
+<body style="font-family: Balsamiq Sans;">
+    <nav class="navbar navbar-expand-lg bg-light">
+        <div class="container-fluid">
+          <h1>Edit User {{ user.id }}</h1>
+          <a class="nav-link active" aria-current="page" href="/users">Home</a>
+      </nav>
+
+      <div class="card" style="width: 18rem; margin: 20px 0px 0px 40%;">
+        <form action="/update/{{ user.id }}" method="post">
+
+        <ul class="list-group list-group-flush">
+
+          <li class="list-group-item">
+            <label for="first_name">First Name:</label>
+            <input type="text" name="first_name" id="first_name" value="{{user.first_name}}">
+          </li>
+
+          <li class="list-group-item">
+            <label for="last_name">Last Name:</label>
+            <input type="text" name="last_name" id="last_name" value="{{user.last_name}}">
+          </li>
+
+          <li class="list-group-item">
+            <label for="email">Email:</label>
+            <input type="text" name="email" id="email" value="{{user.email}}">
+          </li>
+
+          <li class="list-group-item" style="text-align: center;">
+            <a href="/update/{{ user.id }}"><button style="background-color: yellow; box-shadow: 2px 3px black; border: 2px solid black;">Update</button></a> |
+            <a href="/get_one/{{ user.id }}">Show User</a>
+          </li>
+
+        </ul>
+
+    </form>
+      </div>
+
+
+    <!-- <form action="/update/{{ user.id }}" method="post">
+
+        <label for="first_name">First Name:</label>
+        <input type="text" name="first_name" id="first_name" value="{{user.first_name}}">
+
+        <label for="last_name">Last Name:</label>
+        <input type="text" name="last_name" id="last_name" value="{{user.last_name}}">
+
+        <label for="email">Email:</label>
+        <input type="text" name="email" id="email" value="{{user.email}}">
+
+        <a href="/update/{{ user.id }}"><button>Update</button></a> |
+        <a href="/get_one/{{ user.id }}">Show User</a>
+
+    </form> -->
+    
+</body>
+</html>
