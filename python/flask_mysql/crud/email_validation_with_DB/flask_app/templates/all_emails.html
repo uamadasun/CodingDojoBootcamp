@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css2?family=Balsamiq+Sans&display=swap" rel="stylesheet">
+    <title>Success Page</title>
+</head>
+<body style="font-family: Balsamiq Sans;">
+
+    <div class="alert alert-warning alert-dismissible fade show" role="alert">
+        <strong>Thank you!</strong> The email you provided ({{latest_email.email}}) is a VALID email!
+      </div>
+
+    <h2 style="text-align: center;">Email Addresses Entered:</h2>
+
+
+    <table class="table table-hover">
+        <thead>
+            <th>Email: </th>
+            <th>Created at:</th>
+            <th>Action:</th>
+        </thead>
+        <tbody>
+            {% for each_email in all_emails%}
+            <tr>
+                <td>{{each_email.email}}</td>
+                <td>{{ each_email.created_at}} </td>
+                <td><a href="/delete_email/{{each_email.id}}">Delete</a></td>
+            </tr>
+            {%endfor%}
+
+        </tbody>
+    </table>
+    <p></p>
+    
+</body>
+</html>
