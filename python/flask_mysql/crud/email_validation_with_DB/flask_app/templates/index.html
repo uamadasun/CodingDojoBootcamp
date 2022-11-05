@@ -12,13 +12,10 @@
 
     <div class="card" style="width: 18rem; margin: 0px 0px 0px 40%;">
         <div class="card-body">
-            {% with messages = get_flashed_messages() %}     <!-- declare a variable called messages -->
-            {% if messages %}                            <!-- check if there are any messages -->
-                {% for message in messages %}            <!-- loop through the messages -->
+                {% for message in get_flashed_messages() %}            <!-- loop through the messages in get_flashed_messages() function call, you can add category_filter as an argument for this function.-->
                     <p>{{message}}</p>                   <!-- display each message in a paragraph tag -->
                 {% endfor %}
-            {% endif %}
-        {% endwith %}
+
           <form action="/create_email" method="post">
             <label for="email">Enter your email: </label>
             <input type="text" id="email" name="email">

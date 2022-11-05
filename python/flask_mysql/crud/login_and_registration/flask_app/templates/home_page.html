@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home Page</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css2?family=Balsamiq+Sans&display=swap" rel="stylesheet">
+
+</head>
+<body style="font-family: Balsamiq Sans; color: black;">
+    {% for each_message in get_flashed_messages()%}
+    <p style="color: red;">{{each_message}}</p>
+    {%endfor%}
+    <div class="boxes" style="display: flex; gap: 50px; height: auto; width: 800px;">
+
+        <div class="register_box" style="background-color: burlywood; flex: 2;">
+
+            <h1>Register</h1>
+            <form action="/register_user" method="post">
+                <div class="form-group">
+                    <label for="first_name">First Name: </label>
+                    <input type="text" class="form-control" id="first_name" name="first_name" aria-describedby="emailHelp">
+                  </div>
+    
+                  <div class="form-group">
+                    <label for="last_name">Last Name: </label>
+                    <input type="text" class="form-control" id="last_name" name="last_name">
+                  </div>
+    
+                  <div class="form-group">
+                    <label for="email">Email: </label>
+                    <input type="text" class="form-control" id="email" name="email">
+                  </div>
+    
+                  <div class="form-group">
+                    <label for="password">Password: </label>
+                    <input type="password" class="form-control" id="password" name="password">
+                  </div>
+    
+    
+                  <div class="form-group">
+                    <label for="confirm_password">Confirm Password: </label>
+                    <input type="password" class="form-control" id="confirm_password" name="confirm_password">
+                  </div>
+                <button class="btn btn-dark"   style="margin-left: 200px;">Register</button>
+            </form>
+    
+        </div>
+    
+        <div class="login_box" style="background-color: purple; flex: 1; color: white;">
+            <h1>Log In</h1>
+            <form action="/log_in" method="post">
+    
+                  <div class="form-group">
+                    <label for="email">Email: </label>
+                    <input type="text" class="form-control" id="email" name="email">
+                  </div>
+    
+                  <div class="form-group">
+                    <label for="password">Password: </label>
+                    <input type="password" class="form-control" id="password" name="password">
+                  </div>
+    
+                <button class="btn btn-warning"   style="margin: 20px 0px 0px 90px;">Log In</button>
+            </form>
+    
+        </div>
+
+
+
+
+
+    </div>
+
+</body>
+</html>
+
