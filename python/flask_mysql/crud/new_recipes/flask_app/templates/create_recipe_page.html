@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create a New Recipe</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css2?family=Balsamiq+Sans&display=swap" rel="stylesheet">
+
+</head>
+<body style="font-family: Balsamiq Sans;">
+    <div class="header" style="display: flex;">
+        <h1 style="flex: 2;">Add a New Recipe!</h1>
+        <div class="header_links" style="flex: 1;">
+            <a href="/user_page">Back to Recipes</a> |
+            <a href="/log_out">Logout</a>
+        </div>
+    </div>
+
+
+<div class="create_recipe_form" style="margin: 0px 500px 0px 500px;">
+    {%for each_message in get_flashed_messages()%}
+    <p style="color: red;">{{each_message}}</p>
+    {%endfor%}
+
+    <form action="/create_recipe" method="post">
+
+        <div class="left_form">
+            <div class="mb-3">
+                <label for="recipe_name" class="form-label">Name </label>
+                <input type="text" name="recipe_name" class="form-control" id="exampleInputEmail1 recipe_name" aria-describedby="emailHelp">
+            </div>
+    
+            <div class="mb-3">
+                <label for="description" class="form-label">Description: </label>
+                <textarea name="description" id="exampleInputEmail1" cols="30" rows="10" class="form-control"></textarea>
+            </div>
+    
+            <div class="mb-3">
+                <label for="instructions" class="form-label">Instructions: </label>
+                <textarea name="instructions" id="exampleInputEmail1" cols="30" rows="10" class="form-control"></textarea>
+            </div>
+        </div>
+
+
+    <div class="right_form">
+
+        <div class="mb-3">
+            <label for="date_cooked" class="form-label">Date Cooked/Made</label>
+            <input type="date" class="form-control" id="exampleInputPassword1 date_cooked" name="date_cooked" placeholder="">
+        </div>
+
+        <div class="mb-3">
+            <label for="under_30" class="form-label">Under 30 Minutes? </label>
+            <input type="radio" name="under_30" id="under_30_yes" value="1">
+            <label for="under_30">Yes</label>
+            <input type="radio" name="under_30" id="under_30_no" value="0">
+            <label for="under_30">No</label>
+        </div>
+    
+        <button type="submit" class="btn btn-primary">Submit</button>
+
+    </div>
+
+    </form>
+
+</div>
+
+</body>
+</html>

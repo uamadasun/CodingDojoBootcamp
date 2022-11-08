@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Page</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css2?family=Balsamiq+Sans&display=swap" rel="stylesheet">
+
+</head>
+<body style="font-family: Balsamiq Sans;">
+    <h1>Welcome, {{user.first_name}}!</h1>
+
+
+    <div class="user_header_links" style="display: flex;">
+        <h3 style="flex: 2;">All Posted Recipes:</h3>
+        <div class="create_logout_links" style="flex: 1;">
+            <a href="/new_recipe_link">Create+</a> |
+            <a href="/log_out">Log Out</a>
+        </div>
+    </div>
+
+    <table class="table table-striped table-hover">
+        
+        <thead>
+          <tr>
+            <!-- <th scope="col">#</th> -->
+            <th scope="col">Name</th>
+            <th scope="col">Under 30?</th>
+            <th scope="col">Posted By</th>
+            <th scope="col">Actions</th>
+          </tr>
+        </thead>
+
+        <tbody>
+            {%for entry in all_entries%}
+          <tr>
+            <td>{{entry.name}}</td>
+
+            {% if entry.under_30 == 1 %}
+            <td>Yes</td>
+            {% else %}
+            <td>No</td>
+            {% endif %}
+
+            <td>{{entry.first_name}}</td>
+
+            {% if entry.user_id == session['current_id']%}
+            <td>
+                <a href="/view_recipe/{{entry.id}}">view recipe</a> |
+                <a href="/link_update_recipe/{{entry.id}}">edit</a> |
+                <a href="/delete_recipe/{{entry.id}}">delete</a>
+            </td>
+            {% else %}
+            <td><a href="/view_recipe/{{entry.id}}">view recipe</a></td>
+            {%endif%}
+          </tr>
+            {%endfor%}
+
+        </tbody>
+      </table>
+</body>
+</html>
