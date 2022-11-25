@@ -4,13 +4,37 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Authors</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/css2?family=Balsamiq+Sans&display=swap" rel="stylesheet">
 </head>
 
 <body style="font-family: Balsamiq Sans;">
+  <div class="container" style="display: flex; gap:30px;">
+    <div class="left_side">
+      <h1>New Author</h1>
+      <form action="/create_author" method="post">
+        <label for="name">Name</label>
+        <input type="text" name="name" id="name">
+        <button class="btn btn-primary">Create</button>
+      </form>
 
+    </div>
+
+    <div class="right_side" style="display: block;">
+      <h1>All Authors</h1>
+      {% for author in all_authors %}
+      <li><a href="/author_favorites_page/{{author.id}}">{{ author.name }}</a></li>
+        {% endfor %}
+      <div>
+        <a href="/add_book" class="btn btn-success">Add Book</a>
+      </div>
+    </div>
+
+
+
+
+  </div>
 
     
     

@@ -33,15 +33,6 @@ class Message:
         ON users.id = users_have_messages.user_id
         WHERE messages.receiver_id = %(id)s;
         """
-        # query = """
-        # SELECT *
-        # FROM messages
-        # LEFT JOIN users_have_messages
-        # ON users_have_messages.message_id = messages.id
-        # LEFT JOIN users
-        # ON messages.sender_id = users.id
-        # WHERE messages.receiver_id = %(id)s;
-        # """
         messages_from_db = connectToMySQL('privacy').query_db(query, data)
         messages = []
         for message in messages_from_db:

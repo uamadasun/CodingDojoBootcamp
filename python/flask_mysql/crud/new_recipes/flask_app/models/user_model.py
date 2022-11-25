@@ -59,20 +59,14 @@ class User:
             users_list.append(cls(each_user))
         return users_list
 
-    @classmethod
-    def get_all_recipes_with_users(cls):
-        query = """
-        SELECT * 
-        FROM recipes
-        JOIN users
-        ON users.id = recipes.user_id;
-        """
 
-        entries_from_db = connectToMySQL('recipes').query_db(query)
-        entries = []
-        for each_entry in entries_from_db:
-            entries.append(each_entry)
-        return entries
+
+        ######WRONG CODE HERE
+        # entries_from_db = connectToMySQL('recipes').query_db(query)
+        # entries = []
+        # for each_entry in entries_from_db:
+        #     entries.append(each_entry)
+        # return entries
 
 
     @staticmethod
@@ -87,7 +81,6 @@ class User:
             flash("Last name needs to be longer.")
             is_valid = False
 
-
         if not EMAIL_REGEX.match(data['email']): 
             flash("Invalid email address! Try again!")
             is_valid = False
@@ -95,7 +88,6 @@ class User:
         if not data['password'] == data['confirm_password']:
             flash('Passwords must match.')
             is_valid = False
-
 
         #check if the email provided is unique
         user_data = {

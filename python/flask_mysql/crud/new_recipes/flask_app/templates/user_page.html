@@ -44,9 +44,9 @@
             <td>No</td>
             {% endif %}
 
-            <td>{{entry.first_name}}</td>
+            <td>{{entry.creator.first_name}}</td>
 
-            {% if entry.user_id == session['current_id']%}
+            {% if entry.creator.id == session['current_id']%}
             <td>
                 <a href="/view_recipe/{{entry.id}}">view recipe</a> |
                 <a href="/link_update_recipe/{{entry.id}}">edit</a> |

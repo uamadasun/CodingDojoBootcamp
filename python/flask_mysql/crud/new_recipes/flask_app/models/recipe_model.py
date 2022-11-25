@@ -40,11 +40,26 @@ class Recipe:
         ON users.id = recipes.user_id
         WHERE recipes.id = %(id)s;
         """
-        recipes_from_db = connectToMySQL('recipes').query_db(query, data)
-        recipes = []
-        for recipe in recipes_from_db:
-            recipes.append(recipe)
-        return recipes[0]
+        results = connectToMySQL('recipes').query_db(query, data)
+        if len(results)<1:
+            return False
+        this_recipe = cls(results[0])
+        user_data = {
+            **results[0],
+            'id':results[0]['users.id'],
+            'created_at': results[0]['users.created_at'],
+            'updated_at': results[0]['users.updated_at']
+        }
+
+        this_user = user_model.User(user_data)
+        this_recipe.creator = this_user
+        return this_recipe
+
+        #####WRONG CODE HERE
+        # recipes = []
+        # for recipe in recipes_from_db:
+        #     recipes.append(recipe)
+        # return cls(recipes[0])
 
     @classmethod
     def update_recipe(cls, data):
@@ -54,6 +69,34 @@ class Recipe:
         WHERE id = %(id)s; 
         """
         return connectToMySQL('recipes').query_db(query, data)
+
+    @classmethod
+    def get_all_recipes_with_users(cls):
+        query = """
+        SELECT * 
+        FROM recipes
+        JOIN users
+        ON users.id = recipes.user_id;
+        """
+        ###CORRECT code starts here
+        results = connectToMySQL('recipes').query_db(query)
+        all_recipes = []
+        if results:
+            for row in results:
+                # print("*******ROW", row)
+                this_recipe = cls(row)
+                user_data = {
+                    **row,
+                    'id':row['users.id'],
+                    'created_at':row['users.created_at'],
+                    'updated_at':row['users.updated_at']
+                }
+                this_user = user_model.User(user_data)
+                this_recipe.creator = this_user
+                all_recipes.append(this_recipe)
+                # print("THIS RECIPE\n", this_recipe)
+                # print('END OF ROW\n')
+        return all_recipes
 
 
 

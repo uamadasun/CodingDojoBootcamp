@@ -10,7 +10,6 @@ bcrypt = Bcrypt(app)
 def home_page():
     # if 'current_id' in session:
     #     return redirect('user_page.html')
-        
     return render_template('home_page.html')
 
 
@@ -38,6 +37,9 @@ def register_user():
     # print(session['current_id'])
     return redirect('/user_page')
 
+
+
+
 @app.route('/user_page')
 def user_page():
     #check if the user has logged in yet. if not, redirect them back to home page
@@ -50,12 +52,12 @@ def user_page():
 
     user = User.get_by_id(data)
 
-    all_entries = User.get_all_recipes_with_users()
+    all_entries = Recipe.get_all_recipes_with_users()
     print(all_entries)
-
-
-    # print(all_entries)
     return render_template('user_page.html', user = user, all_entries=all_entries)
+
+
+
 
 @app.route('/log_in', methods = ['POST'])
 def log_in():
