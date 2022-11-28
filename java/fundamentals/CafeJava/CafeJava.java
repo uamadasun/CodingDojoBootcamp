@@ -9,8 +9,8 @@ public class CafeJava {
         
         // Menu variables (add yours below)
         double mochaPrice = 3.5;
-        double dripCoffeePrice = 4.2;
-        double lattePrice = 2.5;
+        double dripCoffeePrice = 1.10;
+        double lattePrice = 4.2;
         double cappuccinoPrice = 1.5;
     
         // Customer name variables (add yours below)
@@ -21,7 +21,7 @@ public class CafeJava {
     
         // Order completions (add yours below)
         boolean isReadyOrder1 = false;
-        boolean isReadyOrder2 = false;
+        boolean isReadyOrder2 = true;
         boolean isReadyOrder3 = false;
         boolean isReadyOrder4 = true;
     
@@ -31,9 +31,19 @@ public class CafeJava {
     	// ** Your customer interaction print statements will go here ** //
         System.out.printf("Thank you for ordering the coffee, %s%s.\n", customer1, pendingMessage);
         if (isReadyOrder4) {
-            System.out.printf("Hi, %s%s.", customer4, readyMessage);
+            System.out.printf("Hi, %s%s.\n", customer4, readyMessage);
         } else{
-            System.out.printf("Hi, %s%s.",customer4, pendingMessage);
+            System.out.printf("Hi, %s%s.\n",customer4, pendingMessage);
         }
+        System.out.format("%s, %s%.2f.\n", customer2, displayTotalMessage, lattePrice*2);
+        if (isReadyOrder2) {
+            System.out.printf("%s%s.\n", customer2, readyMessage);
+        }
+        else{
+            System.out.printf("%s%s.\n", customer2, pendingMessage);
+        }
+
+        System.out.printf("Aplogies for the mix-up, %s. You owe $%.2f more for the latte\n.", customer3, lattePrice - dripCoffeePrice);
+
     }
 }
