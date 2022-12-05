@@ -38,22 +38,6 @@ public class OmiController {
 	
 	@GetMapping("/show")
 	public String showOmi(Model model, HttpSession session) {
-		
-		Integer number = (Integer) session.getAttribute("number");
-		String city = (String) session.getAttribute("city");
-		String person = (String) session.getAttribute("person");
-		String hobby = (String) session.getAttribute("hobby");
-		String thing = (String) session.getAttribute("thing");
-		String message = (String) session.getAttribute("message");
-		
-		model.addAttribute("number", number);
-		model.addAttribute("city", city);
-		model.addAttribute("person", person);
-		model.addAttribute("hobby", hobby);
-		model.addAttribute("thing", thing);
-		model.addAttribute("message", message);
-
-
 		return "showomi.jsp";
 	}
 
