@@ -34,6 +34,7 @@ public class BooksApi {
      return book;
  }
  
+ //for update always use "id" for the path, not bookId or anything like that.
  @RequestMapping(value="/api/books/{id}", method=RequestMethod.PUT)
  public Book update(
  		@PathVariable("id") Long id, 
