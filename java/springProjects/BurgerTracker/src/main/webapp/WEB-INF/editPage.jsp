@@ -6,39 +6,18 @@
 <%@ page isErrorPage="true" %>
 
 
-
 <!DOCTYPE html>
 <html>
 <head>
 	<meta charset="UTF-8">
-	<title>BURGER TRACKER</title>
+	<title>Edit a Burger</title>
 	<link rel="stylesheet" href="/webjars/bootstrap/css/bootstrap.min.css" />
-</head>
-<body class= "container mt-5">
-<h1>Burger Tracker</h1>
-<table class="table table-hover">
-	<thead>
-		<tr>
-			<th>Burger Name</th>
-			<th>Restaurant Name</th>
-			<th>Rating (out of 5)</th>
-			<th>Action</th>
-		</tr>
-	</thead>
-	<tbody>
-		<c:forEach var="eachBurger" items="${allBurgers}">
-		<tr>
-			<td><c:out value="${eachBurger.burgerName }"/></td>
-			<td><c:out value="${eachBurger.restaurantName }"/></td>
-			<td><c:out value="${eachBurger.rating}"/> </td>
-			<td><a href="/burgers/edit/${eachBurger.id }">Edit</a></td>
-		</tr>
-		</c:forEach>
-	</tbody>
-</table>
 
-<h3>Add a Burger:</h3>
-<form:form action="/" method="POST" modelAttribute="burger" class="form-group">
+</head>
+<body class="container mt-5">
+
+<h3>Edit Burger:</h3>
+<form:form action="/new/${burger.id }" method="PUT" modelAttribute="burger" class="form-group">
 	<p><form:errors path="burgerName" class="text-danger"/></p>
 	<p><form:errors path="restaurantName" class="text-danger"/></p>
 	<p><form:errors path="rating" class="text-danger"/></p>
@@ -46,22 +25,22 @@
 
 	<p>
 	<form:label path="burgerName">Burger Name</form:label>
-	<form:input path="burgerName" class="form-control"/>
+	<form:input path="burgerName" class="form-control" value="${burger.burgerName }"/>
 	</p>
 	
 	<p>
 	<form:label path="restaurantName">Restaurant Name</form:label>
-	<form:input path="restaurantName"  class="form-control"/>
+	<form:input path="restaurantName"  class="form-control" value="${burger.restaurantName }"/>
 	</p>
 	
 	<p>
 	<form:label path="rating">Rating (out of 5)</form:label>
-	<form:input type="number" path="rating" class="form-control"/>
+	<form:input type="number" path="rating" class="form-control" value="${burger.rating }"/>
 	</p>
 	
 	<p>
 	<form:label path="notes">Notes</form:label>
-	<form:textarea path="notes" class="form-control"/>
+	<form:textarea path="notes" class="form-control" value="${burger.notes }"/>
 	</p>
 	
 	<input type="submit" value="Submit" class="btn btn-success"/>

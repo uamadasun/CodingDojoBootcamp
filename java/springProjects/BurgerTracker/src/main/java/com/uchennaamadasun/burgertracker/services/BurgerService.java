@@ -1,6 +1,7 @@
 package com.uchennaamadasun.burgertracker.services;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -26,6 +27,27 @@ public class BurgerService {
 	// CREATE A BURGER
     public BurgerModel createBurger(BurgerModel burger) {
         return burgerRepository.save(burger);
+    }
+    
+    // FIND ONE BURGER
+    public BurgerModel findBurger(Long id) {
+        Optional<BurgerModel> optionalBurger = burgerRepository.findById(id);
+        if(optionalBurger.isPresent()) {
+            return optionalBurger.get();
+        } else {
+            return null;
+        }
+    }
+    
+    public BurgerModel updateBurger(BurgerModel burger) {
+    	return burgerRepository.save(burger);
+    }
+    
+    //DELETE A BURGER
+    public void deleteBurger(Long id) {
+    	this.burgerRepository.deleteById(id);
+    	
+    	return;
     }
     
 

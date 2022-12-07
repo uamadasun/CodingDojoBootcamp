@@ -25,15 +25,15 @@ public class BurgerModel {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	
-	@NotNull(message = "Field required")
-	@Size(min=5, max=200, message ="Must be longer than 5 characters")
+	@NotNull
+	@Size(min=5, max=200, message ="Burger name must be longer than 5 characters")
 	private String burgerName;
 	
 	@NotNull
-	@Size(min=5, max=200, message="Must be longer than 5 characters")
+	@Size(min=5, max=200, message="Restaurant's name must be longer than 5 characters")
 	private String restaurantName;
 	
-	@NotNull(message="Field required")
+	@NotNull(message="Rating field is required.")
 	@Min(value=1, message="Rating must be >0")
 	@Max(value=5, message="Rating must be <=5")
 	private Integer rating;
