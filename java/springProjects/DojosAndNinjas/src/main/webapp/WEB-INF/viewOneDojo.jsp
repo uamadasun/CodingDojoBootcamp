@@ -24,7 +24,7 @@
 		</tr>
 	</thead>
 	<tbody>
-	<c:forEach var="eachNinja" items="${allNinjas }">
+	<c:forEach var="eachNinja" items="${dojo.ninjas }">
 	<tr>
 	<td><c:out value="${eachNinja.firstName }"/></td>
 	<td><c:out value="${eachNinja.lastName }"/></td>

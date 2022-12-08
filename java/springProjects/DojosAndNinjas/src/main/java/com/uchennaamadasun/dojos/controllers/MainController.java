@@ -73,7 +73,7 @@ public class MainController {
 	@GetMapping("/dojos/{dojoId}")
 	public String viewOneDojo(@PathVariable("dojoId") Long id, Model model) {
 		model.addAttribute("dojo", dojoService.findDojo(id));
-		model.addAttribute("allNinjas", ninjaService.findAllNinjasInOneDojo(id));
+//		model.addAttribute("allNinjas", ninjaService.findAllNinjasInOneDojo(id));
 		return "viewOneDojo.jsp";
 	}
 	
