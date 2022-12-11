@@ -25,6 +25,7 @@
 <div class="d-flex">
 <p class="p-2">Books from everyone's shelves:</p>
 <a href="/books/new" class="ml-auto p-2">+ Add a Book to my Shelf</a>
+<a href="/bookmarket">Go to Book Market</a>
 </div>
 
 <table class="table table-hover">

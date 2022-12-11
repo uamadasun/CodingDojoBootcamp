@@ -41,10 +41,17 @@
 		<form:label path="thoughts"> My Thoughts: </form:label>
 		<form:textarea path="thoughts" class ="form-control"/>
 		</p>
+		<form:hidden path="borrowingUsers"/>
 		
 		<input type="submit" value="Submit" class="btn btn-info"/>
+		
 	
 	</form:form>
+	
+	<form action="/delete/${book.id }" method="post">
+					<input type="hidden" name="_method" value="delete" />
+					<input type="submit" value="Delete" class="btn btn-danger"/>
+				</form>
 
 </body>
 </html>

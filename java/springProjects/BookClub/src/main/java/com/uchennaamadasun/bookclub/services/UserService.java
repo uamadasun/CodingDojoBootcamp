@@ -1,5 +1,7 @@
 package com.uchennaamadasun.bookclub.services;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Optional;
 
 import org.mindrot.jbcrypt.BCrypt;
@@ -7,20 +9,20 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.validation.BindingResult;
 
+import com.uchennaamadasun.bookclub.models.Book;
 import com.uchennaamadasun.bookclub.models.LoginUser;
 import com.uchennaamadasun.bookclub.models.User;
+import com.uchennaamadasun.bookclub.repositories.BookRepository;
 import com.uchennaamadasun.bookclub.repositories.UserRepository;
 
 @Service
 public class UserService {
 	@Autowired
-	private final UserRepository userRepository;
+	private UserRepository userRepository;
+	
+	@Autowired
+	private BookRepository bookRepository;
 
-	public UserService(UserRepository userRepository) {
-		this.userRepository = userRepository;
-	}
-	
-	
 	public Optional<User> findUserById(Long id) {
 		return userRepository.findById(id);
 	}
@@ -72,6 +74,44 @@ public class UserService {
     	//5. OTHERWISE, RETURN THE NEW USER
         return user;
     }
+	
+	
+	public User borrowBook(Long userId, Long bookId) {
+		Optional<Book> optionalBook = bookRepository.findById(bookId);
+		Book thisBook = optionalBook.get();
+		
+		Optional<User> optionalUser = userRepository.findById(userId);
+		User thisUser = optionalUser.get();
+		
+		thisUser.getBorrowedBooks().add(thisBook);
+		
+		return userRepository.save(thisUser);
+	}
+	
+	public ArrayList<Book> listNoneBorrowedBooks(Long id) {
+		Optional <User> optionalUser = userRepository.findById(id);
+		ArrayList<Book> bookList = new ArrayList<Book>();
+		for(Book book:bookRepository.findAll()) {
+			if(!book.getBorrowingUsers().contains(optionalUser.get())) {
+				bookList.add(book);
+			}
+		}
+		return bookList;
+	}
+	
+	public User returnBook(Long userId, Long bookId) {
+		Optional<Book> optionalBook = bookRepository.findById(bookId);
+		Book thisBook = optionalBook.get();
+		
+		Optional<User> optionalUser = userRepository.findById(userId);
+		User thisUser = optionalUser.get();
+		
+		List<Book> borrowedBooks = thisUser.getBorrowedBooks();
+		borrowedBooks.remove(thisBook);
+		thisUser.setBorrowedBooks(borrowedBooks);
+		
+		return userRepository.save(thisUser);
+	}
 	
 	
 

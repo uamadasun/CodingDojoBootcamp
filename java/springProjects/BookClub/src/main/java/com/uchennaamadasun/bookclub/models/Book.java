@@ -1,6 +1,7 @@
 package com.uchennaamadasun.bookclub.models;
 
 import java.util.Date;
+import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -9,12 +10,13 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.PrePersist;
 import javax.persistence.PreUpdate;
 import javax.persistence.Table;
 import javax.validation.constraints.NotEmpty;
-import javax.validation.constraints.NotNull;
 
 import org.springframework.format.annotation.DateTimeFormat;
 
@@ -39,6 +41,17 @@ public class Book {
 	@ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name="user_id")
     private User creator;
+	
+	//CREATE MANY TO MANY RELATIONSHIP
+	@ManyToMany(fetch = FetchType.LAZY)
+	@JoinTable(
+			name = "user_borrows_book", 
+			joinColumns = @JoinColumn(name = "book_id"),
+			inverseJoinColumns = @JoinColumn(name = "user_id")
+			)
+	private List<User> borrowingUsers;
+	
+	
 	
 	@Column(updatable=false)
     @DateTimeFormat(pattern="yyyy-MM-dd")
@@ -132,6 +145,16 @@ public class Book {
 
 	public void setCreator(User creator) {
 		this.creator = creator;
+	}
+
+
+	public List<User> getBorrowingUsers() {
+		return borrowingUsers;
+	}
+
+
+	public void setBorrowingUsers(List<User> borrowingUsers) {
+		this.borrowingUsers = borrowingUsers;
 	}
     
 }

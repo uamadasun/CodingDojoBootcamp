@@ -1,5 +1,6 @@
 package com.uchennaamadasun.bookclub.controllers;
 
+import java.util.List;
 import java.util.Optional;
 
 import javax.servlet.http.HttpSession;
@@ -88,6 +89,12 @@ public class BookController {
 	
 	@DeleteMapping("/delete/{id}")
 	public String deleteBook(@PathVariable("id") Long id) {
+		Book thisBook = bookService.viewOne(id);
+		for(User user: thisBook.getBorrowingUsers()) {
+			List<Book> userBooks = user.getBorrowedBooks();
+			userBooks.remove(thisBook);
+			user.setBorrowedBooks(userBooks);
+		}
 		bookService.deleteBook(id);
 		return "redirect:/home";
 	}

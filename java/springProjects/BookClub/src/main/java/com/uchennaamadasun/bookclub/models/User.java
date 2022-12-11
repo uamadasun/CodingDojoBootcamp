@@ -7,6 +7,9 @@ import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.Transient;
@@ -42,6 +45,16 @@ public class User {
     
     @OneToMany(mappedBy="creator", fetch = FetchType.LAZY)
     private List<Book> books;
+    
+    //CREATE MANY TO MANY RELATIONSHIP
+    @ManyToMany(fetch = FetchType.LAZY)
+    @JoinTable(
+    		name = "user_borrows_book",
+    		joinColumns = @JoinColumn(name = "user_id"),
+    		inverseJoinColumns = @JoinColumn(name = "book_id")
+    		)
+    private List<Book> borrowedBooks;
+    
     
   //CREATE EMPTY CONSTRUCTOR
     public User() {
@@ -95,6 +108,14 @@ public class User {
 
 	public void setBooks(List<Book> books) {
 		this.books = books;
+	}
+
+	public List<Book> getBorrowedBooks() {
+		return borrowedBooks;
+	}
+
+	public void setBorrowedBooks(List<Book> borrowedBooks) {
+		this.borrowedBooks = borrowedBooks;
 	}
 
 }
