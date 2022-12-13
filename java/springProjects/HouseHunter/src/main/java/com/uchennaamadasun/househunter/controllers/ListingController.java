@@ -9,10 +9,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 
 import com.uchennaamadasun.househunter.models.Listing;
 import com.uchennaamadasun.househunter.models.User;
@@ -62,6 +64,32 @@ public class ListingController {
 		model.addAttribute("listing", listingService.viewOne(id));
 		
 		return "viewOneListing.jsp";
+	}
+	
+	@GetMapping("/listing/{id}/edit")
+	public String displayEditPage(@PathVariable("id") Long id, 
+			@ModelAttribute("listing") Listing listing, Model model, HttpSession session) {
+		if(session.getAttribute("userId") == null) {
+    		return "redirect:/";
+    	}
+		model.addAttribute("listing", listingService.viewOne(id));
+		return "displayEditPage.jsp";
+	}
+	
+	@PutMapping("/listing/{id}/edit")
+	public String updateListing(@Valid @ModelAttribute("listing") Listing listing, 
+			BindingResult result) {
+		if (result.hasErrors()) {
+			return "displayEditPage.jsp";
+		}
+		listingService.updateListing(listing);
+		return "redirect:/dashboard";
+	}
+	
+	@DeleteMapping("/delete/{id}")
+	public String deleteListing(@PathVariable("id") Long id) {
+		listingService.deleteListing(id);
+		return "redirect:/dashboard";
 	}
 	
 	
