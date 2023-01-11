@@ -5,7 +5,7 @@ class PersonCard extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            updatedAge: this.props.people.age
+            updatedAge: this.props.person.age
         };
     }
 
@@ -18,10 +18,10 @@ class PersonCard extends Component {
         return(
             <div className="font-link">
 
-                <h1> {this.props.people.lastName}, {this.props.people.firstName}</h1>
+                <h1> {this.props.person.lastName}, {this.props.person.firstName}</h1>
                 <p>Age: {this.state.updatedAge}</p>
-                <p>Hair Color: {this.props.people.hairColor}</p>
-                <button onClick={this.addAge}> Birthday Button for {this.props.people.firstName} {this.props.people.lastName}</button>
+                <p>Hair Color: {this.props.person.hairColor}</p>
+                <button onClick={this.addAge}> Birthday Button for {this.props.person.firstName} {this.props.person.lastName}</button>
 
             </div>
         )
