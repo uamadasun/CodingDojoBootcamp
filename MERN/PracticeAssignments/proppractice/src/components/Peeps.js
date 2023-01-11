@@ -1,4 +1,4 @@
-//ANOTHER WAY
+// // ANOTHER WAY
 
 // import React, { Component } from 'react'
 

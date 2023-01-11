@@ -1,9 +1,9 @@
-import PeopleCard from './components/PersonCard';
-import Peeps from './components/Peeps';
+import PersonCard from './components/PersonCard';
+// import Peeps from './components/Peeps';
 
 
 function App() {
-  //ANOTHER WAY
+  // ANOTHER WAY
   // const cards = [
   //   {last_name:"Doe", first_name:"Jane", age:45, hair_color:"black"},
   //   {last_name:"Smith", first_name:"John", age:88, hair_color:"brown"},
@@ -14,7 +14,7 @@ function App() {
   
   return (
     <div className="App">
-      <PeopleCard people= {
+      <PersonCard people= {
         [{
             firstName: "Jane",
             lastName: "Doe",

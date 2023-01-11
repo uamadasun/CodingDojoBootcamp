@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 
 class PersonCard extends Component {
+    
     render() {
         return(
             <div className="font-link">
@@ -13,7 +14,7 @@ class PersonCard extends Component {
                             <p>Hair Color: {person.hairColor}</p>
                         </div> 
                     )
-                })}
+                })} 
 
             </div>
         )
