@@ -17,7 +17,8 @@ const Form = (props) => {
     const [confirmPassword, setConfirmPassword] = useState("");
     const [confirmPasswordError, setConfirmPasswordError] = useState("");
 
-    //ask about how to have the error disappear when person is not typing, why password matching validation doesn't work,
+    //ask about how to have the error disappear when nothing is typed after user has started typing
+    //why password matching validation doesn't work,
     //and is this the way we were suppposed to do this with all this repeating code?
     const handleFirstName = (e) => {
         setFirstName(e.target.value);
@@ -29,7 +30,7 @@ const Form = (props) => {
     }
 
     const handleLastName = (e) => {
-        // if(lastName.length <= 0) {
+        // if(lastName.length < 1) {
         //     setLastNameError("");
         // }
         setLastName(e.target.value);
@@ -51,7 +52,8 @@ const Form = (props) => {
 
     const handlePassword = (e) => {
         setPassword(e.target.value);
-        if (password.length < 8) {
+        //makes me type 9 characters even though the condition is for less than 8.
+        if (e.target.value.length < 8) {
             setPasswordError("Password should be at least 8 characters long, try again.");
         } else{
             setPasswordError("");
@@ -60,10 +62,12 @@ const Form = (props) => {
 
     const handleConfirmPassword = (e) => {
         setConfirmPassword(e.target.value);
-        if (confirmPassword !== password) {
+        console.log("confirm password: " + confirmPassword);
+        console.log("target: " + e.target.value);
+        if (e.target.value !== password) {
             setConfirmPasswordError( "Passwords must match.");
         } else{
-            setConfirmPassword("");
+            setConfirmPasswordError("");
         }
         
     }
