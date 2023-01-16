@@ -3,7 +3,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import Tab from "./components/Tab";
 import React, { useState } from 'react';
 
-
+//ask about bonuses
 function App() {
 
 

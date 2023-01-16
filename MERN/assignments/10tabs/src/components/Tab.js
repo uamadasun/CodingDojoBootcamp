@@ -1,14 +1,14 @@
 import React, { useState } from 'react';
 
 const Tab = (props) => {
-    // const [currentTab, setCurrentTab] = useState("");
+    const [currentTab, setCurrentTab] = useState("");
     // console.log("This is all tabs" + props.allTabs);
     const [content, setContent] = useState("");
 
 
     const onClickHandler = (e, item) => {
         // console.log(item.content);
-        // setCurrentTab(item)
+        setCurrentTab(item)
         console.log(item);
         setContent(item.content);
         // props.getContent = item.content;
@@ -16,12 +16,13 @@ const Tab = (props) => {
     }
 
     return(
-        <div className = "container mt-8">
+        <div className = "container mt-4">
 
             <div className = "d-inline-flex align-content-middle">
                 {props.allTabs.map((item,i) => 
                 <div key={i}> 
-                <button className="btn btn-success m-3" name={item} onClick={(e) => onClickHandler(e, item)}> {item.name} </button> </div>
+                <button className={currentTab === item ? "btn btn-success m-3" : "btn btn-danger m-3"} 
+                name={item} onClick={(e) => onClickHandler(e, item)}> {item.name} </button> </div>
                 )}
             </div>
             <div className = "card">
