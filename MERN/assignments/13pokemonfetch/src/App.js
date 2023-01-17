@@ -10,19 +10,17 @@ function App() {
 
   
   const  getPokemon = () => {
-    fetch("https://pokeapi.co/api/v2/pokemon")
+    fetch("https://pokeapi.co/api/v2/pokemon?limit=808")
           .then(response => {
-            // not the actual JSON response body but the entire HTTP response
             return response.json();
         }).then(response => {
-            // we now run another promise to parse the HTTP response into usable JSON
             // setAllPokemon(response)
             // console.log(response.results);
-            let listPokemon = response.results
+            // let listPokemon = response.results
             // listPokemon.map((pokemon) => setAllPokemon([...allPokemon, {pokemon}]))
-            setAllPokemon(listPokemon)
+            setAllPokemon(response.results)
             // console.log(typeof listPokemon)
-            console.log(`all pokemon ${allPokemon}`)
+            console.log(`all pokemon,  ${allPokemon}`)
             
         }).catch(err=>{
             console.log(err);

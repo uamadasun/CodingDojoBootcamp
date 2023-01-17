@@ -11,7 +11,7 @@ const ToDo = () => {
         setAllTasks([...allTasks, {title:task, completed:false}]);
         // console.log([...allTasks, {title:task, completed:false}]);
         localStorage.setItem('tasks', JSON.stringify([...allTasks, {title:task, completed:false}]));
-        console.log("local storage info: " + localStorage.getItem('tasks'))
+        // console.log("local storage info: " + localStorage.getItem('tasks'))
         e.target.reset();
         
         
