@@ -8,14 +8,14 @@ import FormWrapper from './components/FormWrapper';
 function App() {
   const[name, setName] = useState("");
 
-
   return (
     <div className="App">
+      
       <Context.Provider value={{name, setName}}>
         <NavBar/>
         <FormWrapper/>
       </Context.Provider>
-        
+      
     </div>
   );
 }
