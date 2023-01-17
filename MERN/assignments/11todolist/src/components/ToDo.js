@@ -2,14 +2,18 @@ import React, { useState } from 'react';
 
 const ToDo = () => {
     const [task, setTask] = useState({});
-    const [allTasks, setAllTasks] = useState([]);
+    const [allTasks, setAllTasks] = useState(JSON.parse(localStorage.getItem('tasks')));
+    // console.log("Local storage info: " + localStorage.getItem('tasks'));
 
     const createTask = (e) => {
         e.preventDefault();
-        console.log(task);
+        // console.log(task);
         setAllTasks([...allTasks, {title:task, completed:false}]);
-        console.log([...allTasks, {title:task, completed:false}]);
-        // setTask({});
+        // console.log([...allTasks, {title:task, completed:false}]);
+        localStorage.setItem('tasks', JSON.stringify([...allTasks, {title:task, completed:false}]));
+        console.log("local storage info: " + localStorage.getItem('tasks'))
+        e.target.reset();
+        
         
     }
 
@@ -21,12 +25,20 @@ const ToDo = () => {
                 return item
             }
         });
-        console.log(newAllTasks);
+        // console.log(newAllTasks);
         setAllTasks(newAllTasks)
+        localStorage.setItem('tasks', JSON.stringify(newAllTasks));
+        // console.log("local storage updated info: " + localStorage.getItem('tasks'));
+        
     }
 
+    // const deleteTask = (item) => { 
+    //     setAllTasks((allTasks) => allTasks.filter((currentTask) => currentTask.title !== item.title));
+    // }
     const deleteTask = (item) => { 
         setAllTasks((allTasks) => allTasks.filter((currentTask) => currentTask.title !== item.title));
+        localStorage.setItem('tasks', JSON.stringify(allTasks.filter((currentTask) => currentTask.title !== item.title)));
+        // console.log(localStorage.getItem('tasks'));
     }
 
     return(
