@@ -2,8 +2,8 @@ import React, { useState } from 'react';
 
 const ToDo = () => {
     const [task, setTask] = useState({});
-    const [allTasks, setAllTasks] = useState(JSON.parse(localStorage.getItem('tasks')));
-    // console.log("Local storage info: " + localStorage.getItem('tasks'));
+    const initialState = localStorage.getItem('tasks') === null ? [] : JSON.parse(localStorage.getItem('tasks'));
+    const [allTasks, setAllTasks] = useState(initialState);
 
     const createTask = (e) => {
         e.preventDefault();
@@ -52,7 +52,7 @@ const ToDo = () => {
             </form>
 
             <div className='m-5'>
-                {allTasks.map ((item, idx) => 
+                {   allTasks.map ((item, idx) => 
                 <div key={idx}>
                     <ul className="list-group ">
                         <li className="list-group-item row g-1">
