@@ -1,14 +1,16 @@
-//Intersect Sorted Arrays
-//Given two sorted arrays, return a new array containing all the numbers they have in common
+//Intersect two arrays to create an unsorted multiset
+//return the new array of all the values that both arrays
+//have in common
 
-//Ex: given [2,4,7,9,10] and [2,3,5,7,9,10], return [2,7,9,10]
-//Ex: given [1,1,4,5,8] and [1,1,1,5,6,8] return [1,1,5,8]
-//Ex: given [1,3,5,7,9] and [2,4,6,8,10] return []
+//[6,7,2,7,6,2], [2,7,2,1,2] returns [7,2,2]
 
-const intersect = (arrLeft, arrRight) => {
+const intersectUnsorted = (arrLeft,arrRight) => {
     let i = 0;
     let j = 0;
     let outArr = [];
+
+    arrLeft.sort()
+    arrRight.sort()
 
     while (i < arrLeft.length && j < arrRight.length){
         if (arrLeft[i] < arrRight[j]){
@@ -25,9 +27,37 @@ const intersect = (arrLeft, arrRight) => {
     }
 
     return outArr;
+
 }
 
-// console.log(intersect([2,4,7,9,10],[2,3,5,7,9,10]));
-// console.log(intersect([1,1,4,5,8],[1,1,1,5,6,8]));
-// console.log(intersect([1,3,5,7,9],[2,4,6,8,10]));
-console.log(intersect([-9, 1, 3, 4, 4, 4, 4, 4, 4, 5, 7], [-5, 0, 1, 1, 1, 1, 1, 2, 4, 4, 6, 7]));
+// console.log(intersectUnsorted([6,7,2,7,6,2], [2,7,2,1,2])); 
+// console.log(intersectUnsorted([1,2,2,2,7],[2,2,6,6,7]));
+// console.log(intersectUnsorted([1,5,9],[2,6,10]));
+
+//return a new unsorted union multiset of two arrays
+//essentially same as yesterday but your input is unsorted
+//don't just sort the arrays, then do a union!
+
+//[2,7,2,1,2], [6,7,2,7,6,2] returns [7,2,7,2,2,1,6,6]
+//(or a different combination of the same numbers, since it's unsorted)
+
+const unionUnsorted = (leftArr, rightArr) => {
+    let newArr = []
+
+    for(let i=0; i<leftArr.length; i++) {
+        for (let j=0; j<rightArr.length; j++) {
+            if(leftArr[i] === rightArr[j]) {
+                newArr.push(leftArr[i])
+                leftArr.splice(i, 1);
+                rightArr.splice(j, 1);
+                i--;
+                j--;
+            }
+        }
+    }
+    return [...newArr, ...leftArr, ...rightArr]
+}
+
+console.log(unionUnsorted([2,7,2,1,2], [6,7,2,7,6,2])); 
+console.log(unionUnsorted([2,1,10,7,9],[3,10,2,7,9,5,2]));
+console.log(unionUnsorted([2,2,7,1,2],[2,2,6,7,6]));

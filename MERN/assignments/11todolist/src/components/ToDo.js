@@ -4,14 +4,12 @@ const ToDo = () => {
     const [task, setTask] = useState({});
     const initialState = localStorage.getItem('tasks') === null ? [] : JSON.parse(localStorage.getItem('tasks'));
     const [allTasks, setAllTasks] = useState(initialState);
-
+    //change filter and maps
+    //create a task component and call it here instead of rendering them on this page.
     const createTask = (e) => {
         e.preventDefault();
-        // console.log(task);
         setAllTasks([...allTasks, {title:task, completed:false}]);
-        // console.log([...allTasks, {title:task, completed:false}]);
         localStorage.setItem('tasks', JSON.stringify([...allTasks, {title:task, completed:false}]));
-        // console.log("local storage info: " + localStorage.getItem('tasks'))
         e.target.reset();
         
         
@@ -25,20 +23,17 @@ const ToDo = () => {
                 return item
             }
         });
-        // console.log(newAllTasks);
         setAllTasks(newAllTasks)
         localStorage.setItem('tasks', JSON.stringify(newAllTasks));
-        // console.log("local storage updated info: " + localStorage.getItem('tasks'));
+        ///better way: allTasks[idx].completed = !allTasks[idk].completed;
+        //then update the states
         
     }
 
-    // const deleteTask = (item) => { 
-    //     setAllTasks((allTasks) => allTasks.filter((currentTask) => currentTask.title !== item.title));
-    // }
     const deleteTask = (item) => { 
         setAllTasks((allTasks) => allTasks.filter((currentTask) => currentTask.title !== item.title));
         localStorage.setItem('tasks', JSON.stringify(allTasks.filter((currentTask) => currentTask.title !== item.title)));
-        // console.log(localStorage.getItem('tasks'));
+        //can use splice and update the states using the spliced allTasks
     }
 
     return(
@@ -57,16 +52,12 @@ const ToDo = () => {
                     <ul className="list-group ">
                         <li className="list-group-item row g-1">
                             <p style={item.completed ? {textDecoration: 'line-through'} : {fontWeight: 'normal'}}> { item.title } </p>
-                            {/* <input type="checkbox" checked ={item.completed} onClick={e => setAllTasks([...allTasks, {title:item.title, completed:e.target.checked}])}/> */}
                             <input type="checkbox" checked ={item.completed} onClick={(e) => {completeTask(e, idx)}}/>
                             <button className="btn btn-danger" onClick={()=> deleteTask(item)}>Delete</button>
                         </li>
                     </ul>
                 </div>
                     )}
-
-
-                
             </div>
 
         </div>
