@@ -6,27 +6,7 @@
 */
 
 const kMostFrequent = (nums, k) => {
-    let highestVal;
-    let arr = []
-    let count = {}
-    for (let i = 0; i < nums.length; i++) {
-      if (count[nums[i]]) {
-        count[nums[i]] += 1
-      } else {
-        count[nums[i]] = 1
-      }
-    }
-    for (let key in count) {
-      if (count[key] >= highestVal || highestVal == null) {
-        if (count[key] === highestVal) {
-          arr.push(key)
-        } else {
-          highestVal = count[key]
-          arr = [key]
-        }
-      }
-    }
-    return arr
+    
 
 }
 
