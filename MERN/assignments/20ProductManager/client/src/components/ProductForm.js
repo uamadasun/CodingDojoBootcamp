@@ -3,12 +3,12 @@ import axios from 'axios';
 
 const ProductForm = () => {
     const [title, setTitle] = useState(""); 
-    const [price, setPrice] = useState("");
+    const [price, setPrice] = useState(0);
     const [description, setDescription] = useState("");
 
     const onSubmitHandler = e => {
         e.preventDefault();
-        axios.post('http://localhost:8000/api/product/create', {
+        axios.post('http://localhost:8000/product/create', {
             title,
             price, 
             description

@@ -23,8 +23,20 @@ module.exports.getAllPeople = (request, response) => {
 }
 
 module.exports.getPerson = (request, response) => {
-    Person.findOne({_id:request.params.id})
+    Person.findOne({_id:request.params._id})
         .then(person => response.json(person))
+        .catch(err => response.json(err))
+}
+
+module.exports.updatePerson = (request, response) => {
+    Person.findOneAndUpdate({_id: request.params._id}, request.body, {runValidators:true})
+        .then(updatedPerson => response.json(updatedPerson))
+        .catch(err => response.json(err))
+}
+
+module.exports.deletePerson = (request, response) => {
+    Person.deleteOne({ _id: request.params._id })
+        .then(deleteConfirmation => response.json(deleteConfirmation))
         .catch(err => response.json(err))
 }
 
