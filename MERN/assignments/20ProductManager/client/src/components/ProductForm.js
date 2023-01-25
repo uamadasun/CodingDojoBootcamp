@@ -1,20 +1,15 @@
 import React, { useState } from 'react'
 import axios from 'axios';
 
-const ProductForm = () => {
-    const [title, setTitle] = useState(""); 
-    const [price, setPrice] = useState(0);
-    const [description, setDescription] = useState("");
+const ProductForm = (props) => {
+    const { initialTitle, initialPrice, initialDescription, onSubmitProp} = props;
+    const [title, setTitle] = useState(initialTitle); 
+    const [price, setPrice] = useState(initialPrice);
+    const [description, setDescription] = useState(initialDescription);
 
     const onSubmitHandler = e => {
         e.preventDefault();
-        axios.post('http://localhost:8000/product/create', {
-            title,
-            price, 
-            description
-        })
-            .then(res=>console.log(res))
-            .catch(err=>console.log(err))
+        onSubmitProp({title, price, description})
     }
     return (
         <div className='container mt-5'>
@@ -32,7 +27,7 @@ const ProductForm = () => {
                     <label>Description: </label><br/>
                     <input type="textarea" onChange={(e)=>setDescription(e.target.value)} value={description}/>
                 </p>
-                <input type="submit" value="Create"/>
+                <input type="submit" value="Submit"/>
             </form>
 
 

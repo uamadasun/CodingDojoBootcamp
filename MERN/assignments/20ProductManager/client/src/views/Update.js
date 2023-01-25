@@ -1,64 +1,50 @@
 import React, { useEffect, useState } from 'react'
 import axios from 'axios';
-import { useParams, Link } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
+import ProductForm from '../components/ProductForm';
+import DeleteButton from '../components/DeleteButton';
     
 const Update = (props) => {
     const { _id } = useParams();
-    const [title, setTitle] = useState('');
-    const [price, setPrice] = useState(0);
-    const [description, setDescription] = useState('');
+    const [product, setProduct] = useState();
+    const [loaded, setLoaded] = useState(false);
+    const navigate = useNavigate();
     
     useEffect(() => {
         axios.get('http://localhost:8000/product/one/' + _id)
             .then(res => {
-                setTitle(res.data.title);
-                setPrice(res.data.price);
-                setDescription(res.data.description);
+                
+                console.log(res.data);
+                setProduct(res.data);
+                setLoaded(true);
             })
     }, []);
     
-    const UpdateProduct = e => {
-        e.preventDefault();
-        console.log(title);
-        console.log(price);
-        console.log(_id)
-        axios.put('http://localhost:8000/product/one/' + _id, {
-            title,
-            price,
-            description
-        })
+    const UpdateProduct = product => {
+        console.log(product)
+        axios.put('http://localhost:8000/product/one/' + _id, product)
             .then(res => console.log(res))
-            .catch(err => console.error(err));
+            navigate('/products')
+
     }
     
     return (
         <div className='container mt-5'>
-            <h1>Update a Product</h1>
-            <form onSubmit={UpdateProduct}>
-                <p>
-                    <label>Title</label><br />
-                    <input type="text" 
-                    name="title" 
-                    value={title} 
-                    onChange={(e) => setTitle(e.target.value) } />
-                </p>
-                <p>
-                    <label>Price</label><br />
-                    <input type="number" 
-                    name="price"
-                    value={price} 
-                    onChange={(e) => setPrice(e.target.value) } />
-                </p>
-                <p>
-                    <label>Description</label><br />
-                    <input type="text" 
-                    name="description" 
-                    value={description} 
-                    onChange={(e) => setDescription(e.target.value) } />
-                </p>
-                <input type="submit" />
-            </form>
-        <Link to="/products" > All products </Link>
+            {loaded && (
+                <>
+                    <ProductForm onSubmitProp={UpdateProduct}
+                    initialTitle = {product.title}
+                    initialPrice ={product.price}
+                    initialDescription={product.description}
+                    />
+
+                    {/* delete button here */}
+                    <DeleteButton productId = {product._id} successCallback = {
+                        () => navigate('/products')
+                    }/>
+
+                </>
+            )}
         </div>
     )
 }
